@@ -18,15 +18,15 @@ public class PurchaseRequestAdapter implements Adapter<PurchaseRequestRequest> {
     protected final Log logger = LogFactory.getLog(this.getClass());
 
     public HashMap<String, Object> adapt(PurchaseRequestRequest request) {
-        logger.info("START ADAPT " + request.getClass().getSimpleName() + "[" + request + "]");
+        logger.info("START ADAPT " + request.getClass().getSimpleName() + " [" + request + "]");
         HashMap<String, Object> odooEntity = adaptHeader(request.getPurchaseRequestHeader());
         odooEntity.put("request_line_ids", adaptItemLines(request.getItemLines()));
-        logger.info("FINISH ADAPT " + request.getClass().getSimpleName() + "[" + odooEntity + "]");
+        logger.info("FINISH ADAPT " + request.getClass().getSimpleName() + " [" + odooEntity + "]");
         return odooEntity;
     }
 
     private HashMap<String, Object> adaptHeader(PurchaseRequestHeader header) {
-        logger.info("START ADAPT " + header.getClass().getSimpleName() + "[" + header + "]");
+        logger.info("START ADAPT " + header.getClass().getSimpleName() + " [" + header + "]");
         HashMap<String, Object> odooEntityHeader = new HashMap<>();
         if (header.getRequestDate() != null) {
             odooEntityHeader.put("request_date", header.getRequestDate().toString());
@@ -41,12 +41,12 @@ public class PurchaseRequestAdapter implements Adapter<PurchaseRequestRequest> {
         if (header.getPartnerId() != null) {
             odooEntityHeader.put("partner_id", header.getPartnerId());
         }
-        logger.info("FINISH ADAPT " + header.getClass().getSimpleName() + "[" + odooEntityHeader + "]");
+        logger.info("FINISH ADAPT " + header.getClass().getSimpleName() + " [" + odooEntityHeader + "]");
         return odooEntityHeader;
     }
 
     private List<Object> adaptItemLines(List<PurchaseRequestItemLine> itemLines) {
-        logger.info("START ADAPT item lines" + PurchaseRequestItemLine.class.getSimpleName() + "[" + itemLines + "]");
+        logger.info("START ADAPT item lines" + PurchaseRequestItemLine.class.getSimpleName() + " [" + itemLines + "]");
         ArrayList<Object> odooItemLines = new ArrayList<>();
         for (PurchaseRequestItemLine itemLine : itemLines) {
             HashMap<String, Object> odooItemLine = new HashMap<>();
@@ -55,7 +55,7 @@ public class PurchaseRequestAdapter implements Adapter<PurchaseRequestRequest> {
             odooItemLine.put("product_uom_id", itemLine.getProductUomId());
             odooItemLines.add(Arrays.asList(0, 0, odooItemLine));
         }
-        logger.info("FINISH ADAPT item lines" + PurchaseRequestItemLine.class.getSimpleName() + "[" + odooItemLines + "]");
+        logger.info("FINISH ADAPT item lines" + PurchaseRequestItemLine.class.getSimpleName() + " [" + odooItemLines + "]");
         return odooItemLines;
     }
 }
