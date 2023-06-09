@@ -32,11 +32,11 @@ public class PurchaseRequestService {
         try {
             odooEntityId = createCommand(odooEntity);
             confirmCommand(odooEntityId);
+            logger.info("FINISH CREATE " + PurchaseRequestRequest.class.getSimpleName());
             return new Response(odooEntityId, HttpStatus.CREATED);
         } catch (CommandException exception) {
-            throw exception;
-        } finally {
             logger.error("FINISH CREATE " + PurchaseRequestRequest.class.getSimpleName());
+            throw exception;
         }
     }
 
