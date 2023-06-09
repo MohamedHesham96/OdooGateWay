@@ -47,7 +47,7 @@ public class PurchaseRequestService {
         try {
             odooEntityId = purchaseRequestClient.executeCommand(purchaseRequestClient.getModel(), commandName, odooPurchaseRequest);
         } catch (Exception exception) {
-            throw new CommandException(commandName + " process has been failed", exception.getMessage(), HttpStatus.BAD_REQUEST);
+            throw new CommandException(commandName.toUpperCase() + " process has been failed", exception.getMessage(), HttpStatus.BAD_REQUEST);
         }
         return odooEntityId;
     }
@@ -55,14 +55,14 @@ public class PurchaseRequestService {
     public void confirmCommand(Integer odooEntityId) throws CommandException {
         final String commandName = "action_confirm_request";
         try {
-            logger.info("START " + commandName + " [" + odooEntityId + "]");
+            logger.info("START " + commandName.toUpperCase() + " [" + odooEntityId + "]");
             purchaseRequestClient.executeCommand(purchaseRequestClient.getModel(), "action_confirm_request", odooEntityId);
-            logger.info("FINISH " + commandName + " [" + odooEntityId + "]");
+            logger.info("FINISH " + commandName.toUpperCase() + " [" + odooEntityId + "]");
         } catch (RuntimeException exception) {
-            logger.error("(odoo side) FINISH " + commandName + " [" + odooEntityId + "]");
+            logger.error("(odoo side) FINISH " + commandName.toUpperCase() + " [" + odooEntityId + "]");
         } catch (Exception exception) {
-            logger.error("FINISH " + commandName + " [" + odooEntityId + "]");
-            throw new CommandException(commandName + " process has been failed", HttpStatus.BAD_REQUEST);
+            logger.error("FINISH " + commandName.toUpperCase() + " [" + odooEntityId + "]");
+            throw new CommandException(commandName.toUpperCase() + " process has been failed", HttpStatus.BAD_REQUEST);
         }
     }
 }

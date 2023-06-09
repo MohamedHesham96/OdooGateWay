@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @Setter
 @Getter
-public class PurchaseRequestHeader extends RequestEntity {
+public class PurchaseRequestHeader {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate requestDate;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

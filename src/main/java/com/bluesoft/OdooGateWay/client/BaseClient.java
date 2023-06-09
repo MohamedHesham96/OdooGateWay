@@ -78,7 +78,7 @@ public abstract class BaseClient {
         }
     }
 
-    public Integer executeCommand(String modelName, String commandName, HashMap<String, Object> entity) {
+    public Integer executeCommand(String modelName, String commandName, Object entity) {
         try {
             if (this.uid == null) {
                 login();
@@ -90,23 +90,6 @@ public abstract class BaseClient {
             Integer createdEntityId = (Integer) client.execute(common_config, EXECUTE_KW, asList(databaseName, uid, password, modelName, commandName,
                     Collections.singletonList(entity)));
             logger.info("FINISH " + commandName.toUpperCase() + " " + modelName + " [" + entity + "]");
-            return createdEntityId;
-        } catch (XmlRpcException | MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public Object executeCommand(String modelName, String commandName, Integer entityId) {
-        try {
-            if (this.uid == null) {
-                login();
-            }
-            logger.info("START " + commandName.toUpperCase() + " " + modelName + " [" + entityId + "]");
-            XmlRpcClient client = new XmlRpcClient();
-            final XmlRpcClientConfigImpl common_config = new XmlRpcClientConfigImpl();
-            common_config.setServerURL(new URL(String.format(odooObjectUrl, apiUrl)));
-            Object createdEntityId = client.execute(common_config, EXECUTE_KW, asList(databaseName, uid, password, modelName, commandName, Collections.singletonList(entityId)));
-            logger.info("FINISH " + commandName.toUpperCase() + " " + modelName + " [" + entityId + "]");
             return createdEntityId;
         } catch (XmlRpcException | MalformedURLException e) {
             throw new RuntimeException(e);

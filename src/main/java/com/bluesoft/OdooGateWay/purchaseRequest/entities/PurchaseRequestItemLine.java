@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class PurchaseRequestItemLine extends RequestEntity {
+public class PurchaseRequestItemLine {
     private Integer productId;
     private Double productQuantity;
     private Integer productUomId;
