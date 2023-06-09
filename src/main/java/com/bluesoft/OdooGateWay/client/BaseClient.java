@@ -13,7 +13,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Objects;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyMap;

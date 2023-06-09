@@ -4,13 +4,10 @@ import com.bluesoft.OdooGateWay.adapter.Adapter;
 import com.bluesoft.OdooGateWay.purchaseRequest.entities.PurchaseRequestHeader;
 import com.bluesoft.OdooGateWay.purchaseRequest.entities.PurchaseRequestItemLine;
 import com.bluesoft.OdooGateWay.purchaseRequest.entities.PurchaseRequestRequest;
-import com.bluesoft.OdooGateWay.requestAndReposne.Response;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
