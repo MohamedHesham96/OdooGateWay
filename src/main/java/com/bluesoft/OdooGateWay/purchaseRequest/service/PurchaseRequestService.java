@@ -1,10 +1,10 @@
-package com.bluesoft.OdooGateWay.purchaseRequest;
+package com.bluesoft.OdooGateWay.purchaseRequest.service;
 
-import com.bluesoft.OdooGateWay.Exceptions.CommandException;
-import com.bluesoft.OdooGateWay.adapter.Adapter;
-import com.bluesoft.OdooGateWay.client.BaseClient;
+import com.bluesoft.OdooGateWay.Global.exceptions.CommandException;
+import com.bluesoft.OdooGateWay.Global.adapter.Adapter;
+import com.bluesoft.OdooGateWay.Global.client.BaseClient;
 import com.bluesoft.OdooGateWay.purchaseRequest.entities.PurchaseRequestRequest;
-import com.bluesoft.OdooGateWay.requestAndReposne.Response;
+import com.bluesoft.OdooGateWay.Global.reposnes.Response;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,15 +54,29 @@ public class PurchaseRequestService {
 
     public void confirmCommand(Integer odooEntityId) throws CommandException {
         final String commandName = "action_confirm_request";
+        executeCommand(odooEntityId, commandName);
+    }
+
+    public void createPO(Integer purchaseRequestId) throws CommandException {
+        final String commandName = "action_create_purchase_order";
+        executeCommand(purchaseRequestId, commandName);
+    }
+
+    private void executeCommand(Integer purchaseRequestId, String commandName) throws CommandException {
         try {
-            logger.info("START " + commandName.toUpperCase() + " [" + odooEntityId + "]");
-            purchaseRequestClient.executeCommand(purchaseRequestClient.getModel(), "action_confirm_request", odooEntityId);
-            logger.info("FINISH " + commandName.toUpperCase() + " [" + odooEntityId + "]");
+            logger.info("START " + commandName.toUpperCase() + " [" + purchaseRequestId + "]");
+            purchaseRequestClient.executeCommand(purchaseRequestClient.getModel(), "action_confirm_request", purchaseRequestId);
+            logger.info("FINISH " + commandName.toUpperCase() + " [" + purchaseRequestId + "]");
         } catch (RuntimeException exception) {
-            logger.error("(odoo side) FINISH " + commandName.toUpperCase() + " [" + odooEntityId + "]");
+            logger.error("(odoo side) FINISH " + commandName.toUpperCase() + " [" + purchaseRequestId + "]");
         } catch (Exception exception) {
-            logger.error("FINISH " + commandName.toUpperCase() + " [" + odooEntityId + "]");
+            logger.error("FINISH " + commandName.toUpperCase() + " [" + purchaseRequestId + "]");
             throw new CommandException(commandName.toUpperCase() + " process has been failed", HttpStatus.BAD_REQUEST);
         }
+    }
+
+    public void createPA(Integer purchaseRequestId) throws CommandException {
+        final String commandName = "action_create_purchase_requisition";
+        executeCommand(purchaseRequestId, commandName);
     }
 }

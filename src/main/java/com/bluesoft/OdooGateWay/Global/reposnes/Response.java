@@ -1,4 +1,4 @@
-package com.bluesoft.OdooGateWay.requestAndReposne;
+package com.bluesoft.OdooGateWay.Global.reposnes;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,12 +18,6 @@ public class Response {
 
     public Response(Object data, HttpStatus status) {
         this.data = data;
-        this.status = status;
-        time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"));
-    }
-
-    public Response(String errorMessage, HttpStatus status) {
-        this.errorMessage = errorMessage;
         this.status = status;
         time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"));
     }

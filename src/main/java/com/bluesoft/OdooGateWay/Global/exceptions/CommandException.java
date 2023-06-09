@@ -1,4 +1,4 @@
-package com.bluesoft.OdooGateWay.Exceptions;
+package com.bluesoft.OdooGateWay.Global.exceptions;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

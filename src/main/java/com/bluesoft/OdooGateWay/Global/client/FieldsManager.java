@@ -1,4 +1,4 @@
-package com.bluesoft.OdooGateWay.client;
+package com.bluesoft.OdooGateWay.Global.client;
 
 import lombok.Getter;
 import lombok.Setter;

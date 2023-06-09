@@ -1,4 +1,4 @@
-package com.bluesoft.OdooGateWay.client;
+package com.bluesoft.OdooGateWay.Global.client;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collections;
-import java.util.HashMap;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyMap;

@@ -1,6 +1,5 @@
 package com.bluesoft.OdooGateWay.purchaseRequest.entities;
 
-import com.bluesoft.OdooGateWay.adapter.RequestEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;

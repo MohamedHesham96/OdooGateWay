@@ -1,7 +1,7 @@
-package com.bluesoft.OdooGateWay;
+package com.bluesoft.OdooGateWay.Global.ExceptionHandler;
 
-import com.bluesoft.OdooGateWay.Exceptions.CommandException;
-import com.bluesoft.OdooGateWay.requestAndReposne.Response;
+import com.bluesoft.OdooGateWay.Global.exceptions.CommandException;
+import com.bluesoft.OdooGateWay.Global.reposnes.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

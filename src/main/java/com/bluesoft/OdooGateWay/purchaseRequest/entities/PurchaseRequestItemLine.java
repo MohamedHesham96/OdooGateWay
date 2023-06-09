@@ -1,6 +1,5 @@
 package com.bluesoft.OdooGateWay.purchaseRequest.entities;
 
-import com.bluesoft.OdooGateWay.adapter.RequestEntity;
 import lombok.Getter;
 import lombok.Setter;
 

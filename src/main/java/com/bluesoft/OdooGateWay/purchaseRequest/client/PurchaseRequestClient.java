@@ -1,6 +1,6 @@
 package com.bluesoft.OdooGateWay.purchaseRequest.client;
 
-import com.bluesoft.OdooGateWay.client.BaseClient;
+import com.bluesoft.OdooGateWay.Global.client.BaseClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;

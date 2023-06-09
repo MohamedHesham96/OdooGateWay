@@ -1,6 +1,6 @@
-package com.bluesoft.OdooGateWay.purchaseRequest;
+package com.bluesoft.OdooGateWay.purchaseRequest.adapter;
 
-import com.bluesoft.OdooGateWay.adapter.Adapter;
+import com.bluesoft.OdooGateWay.Global.adapter.Adapter;
 import com.bluesoft.OdooGateWay.purchaseRequest.entities.PurchaseRequestHeader;
 import com.bluesoft.OdooGateWay.purchaseRequest.entities.PurchaseRequestItemLine;
 import com.bluesoft.OdooGateWay.purchaseRequest.entities.PurchaseRequestRequest;
