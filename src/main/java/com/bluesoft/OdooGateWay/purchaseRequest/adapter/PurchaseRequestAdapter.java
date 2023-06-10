@@ -34,9 +34,6 @@ public class PurchaseRequestAdapter implements Adapter<PurchaseRequestRequest> {
         if (header.getScheduleDate() != null) {
             odooEntityHeader.put("schedule_date", header.getScheduleDate().toString());
         }
-        if (header.getRequesterId() != null) {
-            odooEntityHeader.put("requester_id", header.getRequesterId());
-        }
         if (header.getPartnerId() != null) {
             odooEntityHeader.put("partner_id", header.getPartnerId());
         }

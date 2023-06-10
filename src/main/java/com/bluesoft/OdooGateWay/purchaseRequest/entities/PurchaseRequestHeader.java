@@ -1,6 +1,8 @@
 package com.bluesoft.OdooGateWay.purchaseRequest.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +15,8 @@ public class PurchaseRequestHeader {
     private LocalDate requestDate;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate scheduleDate;
-    private Integer requesterId;
+    @NotNull(message = "Company id can't be null")
+    @Min(value = 1)
     private Integer companyId;
     private Integer partnerId;
     private Boolean active;
@@ -23,7 +26,6 @@ public class PurchaseRequestHeader {
         return "{" +
                 "requestDate=" + requestDate +
                 ", scheduleDate=" + scheduleDate +
-                ", requesterId=" + requesterId +
                 ", companyId=" + companyId +
                 ", partnerId=" + partnerId +
                 ", active=" + active +

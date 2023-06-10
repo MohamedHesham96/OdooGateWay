@@ -4,6 +4,7 @@ import com.bluesoft.OdooGateWay.Global.exceptions.CommandException;
 import com.bluesoft.OdooGateWay.purchaseRequest.service.PurchaseRequestService;
 import com.bluesoft.OdooGateWay.purchaseRequest.entities.PurchaseRequestRequest;
 import com.bluesoft.OdooGateWay.Global.reposnes.Response;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -26,7 +27,7 @@ public class PurchaseRequestController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    private ResponseEntity<Response> create(@RequestBody PurchaseRequestRequest purchaseRequestRequest) throws CommandException {
+    private ResponseEntity<Response> create(@Valid @RequestBody PurchaseRequestRequest purchaseRequestRequest) throws CommandException {
         Response response = purchaseRequestService.create(purchaseRequestRequest);
         return new ResponseEntity<>(response, response.getStatus());
     }
